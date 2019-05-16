@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="ja" class="">
 <head>
@@ -9,46 +8,31 @@
 <meta name="keywords" content="アイカツ">
 <meta name="description" content="データカードダス アイカツ！のカードをキャラごとに見たかった">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/bootstrap-select.min.css">
-<!--<link rel="stylesheet" href="./css/font-awesome.min.css">-->
-<!--<link rel="stylesheet" href="./css/normalize.css">-->
-<!--<link rel="stylesheet" href="./css/swipebox.css">-->
 <link rel="stylesheet" href="./css/main.css">
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap-select.min.js"></script>
-<!--<script type="text/javascript" src="./js/jquery.swipebox.js"></script>-->
-<!--<script type="text/javascript" src="./js/ios-orientationchange-fix.js"></script>-->
-<script type="text/javascript" src="./js/jquery.csv.js"></script>
 <script type="text/javascript" src="./js/autoScroller.min.js"></script>
-<script type="text/javascript" src="./js/jquery.carouFredSel.js"></script>
+<script type="text/javascript" src="./js/jquery.csv.js"></script>
 <script type="text/javascript" src="./js/jquery.aikatsu.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.selectpicker').selectpicker({
-			style: 'btn-default',
-			size: 5
-		});
-	});
-
-
-</script>
-
 </head>
 <body style="zoom: 1;">
 <div id="ovelay"></div>
-<header>アイカツ！ カードリスト</header>
-<div id="detail">
-
-	<div id="tab5" class="tabbox" style="display: block;">
-		<div class="read">掲載キャラクターごとにカードリストを表示。<!--<div class="notes">Help</div>--></div>
-    <!-- ヘッダー -->
-		<ul id="tags">
-			<li class="list"><input type="button" class="btn btn-primary" id="showList" value="全て"></li>
-			<li class="list"><input type="button" class="btn btn-success" id="showListIchigo" value="キャラごと"></li>
-			<select class="selectpicker" name="character_num" data-width="150px" data-live-search="true">
-				<option value="0" data-tokens="星宮いちご ほしみや Hosimiya Hoshimiya Ichigo">星宮いちご</option>
+<div>
+	<ul>
+	<h1>
+		<li class="list">
+			<input type="button" class="btn btn-default" id="scroll_start" value="▶">
+		</li>
+		<li class="list">
+			<input type="button" class="btn btn-default" id="scroll_stop" value="■">
+		</li>
+		<li class="list">
+		<select class="selectpicker" name="character_num" data-live-search="true" data-width="110px">
+				<option value="-1" data-tokens="">SELECT</option>
+				<option value="0" data-tokens="星宮いちご ほしみや Hosimiya Hoshimiya Ichigo Itigo">星宮いちご</option>
 				<option value="1" data-tokens="霧矢あおい きりや Kiriya Aoi">霧矢あおい</option>
 				<option value="2" data-tokens="紫吹蘭 しぶきらん Sibuki Shibuki Ran">紫吹蘭</option>
 				<option value="3" data-tokens="有栖川おとめ ありすがわ Arisugawa Otome">有栖川おとめ</option>
@@ -58,8 +42,7 @@
 				<option value="7" data-tokens="一ノ瀬かえで いちのせ Ichinose">一ノ瀬かえで</option>
 				<option value="8" data-tokens="三ノ輪ヒカリ みのわひかり Minowa Hikari">三ノ輪ヒカリ</option>
 				<option value="9" data-tokens="神谷しおん かみや Kamiya Shion Sion">神谷しおん</option>
-				<option value="10" data-tokens="ミヤ 星宮りんご みや ほしみやりんご Miya Hoshimiya Hosimiya Ringo">ミヤ/星宮りんご</option>
-				<option value="11" data-tokens="ヒメ 織姫学園長 おりひめ Orihime">ヒメ/織姫学園長</option>
+				<option value="10" data-tokens="ミヤ みや ひめ ヒメ Miya Hime">ヒメ/ミヤ</option>
 				<option value="200" data-tokens="音城セイラ おとしろせいら Otoshiro Otosiro Seira">音城セイラ</option>
 				<option value="201" data-tokens="冴草きい さえぐさ Saegusa Kii">冴草きい</option>
 				<option value="202" data-tokens="風沢そら かぜさわ Kazesawa Sora">風沢そら</option>
@@ -78,22 +61,49 @@
 				<option value="401" data-tokens="白樺リサ しらかばりさ Shirakaba Sirakaba Risa">白樺リサ</option>
 				<option value="402" data-tokens="初音ミク はつねみく Hatsune Hatune Miku">初音ミク</option>
 				<option value="403" data-tokens="堂島ニーナ Doujima Dojima Niina Nina">堂島ニーナ</option>
-				<option value="900" data-tokens="ぱるる Paruru">ぱるる</option>
-				<option value="901" data-tokens="かんな Kanna">かんな</option>
-				<option value="999">その他</option>
-			</select>
-			<li class="list"><input type="button" class="btn btn-success" id="startScroll" value="スクロール"></li>
-		</ul>
-		<!-- コンテンツ -->
-		<div id="container">
-		<div id="clist">
+			<option value="999">その他キャラ</option>
+		</select>
+		</li>
+		<li class="list">
+		<select class="selectpicker list" name="series_num" data-live-search="true" data-width="90px">
+			<option value="0" data-tokens="">ALL</option>
+			<option value="01"  data-tokens="13 1 13-01 13-1">13年1弾</option>
+			<option value="02"  data-tokens="13 2 13-02 13-2">13年2弾</option>
+			<option value="03"  data-tokens="13 3 13-03 13-3">13年3弾</option>
+			<option value="04"  data-tokens="13 4 13-04 13-4">13年4弾</option>
+			<option value="05"  data-tokens="13 5 13-05 13-5">13年5弾</option>
+			<option value="06"  data-tokens="13 6 13-06 13-6">13年6弾</option>
+			<option value="1401"  data-tokens="14 1 14-01 14-1">14年1弾</option>
+			<option value="1402"  data-tokens="14 2 14-02 14-2">14年2弾</option>
+			<option value="1403"  data-tokens="14 3 14-03 14-3">14年3弾</option>
+			<option value="1404"  data-tokens="14 4 14-04 14-4">14年4弾</option>
+			<option value="1405"  data-tokens="14 5 14-05 14-5">14年5弾</option>
+			<option value="1406"  data-tokens="14 6 14-06 14-6">14年6弾</option>
+			<option value="1501"  data-tokens="15 1 15-01 15-1">15年1弾</option>
+			<option value="1502"  data-tokens="15 2 15-02 15-2">15年2弾</option>
+			<option value="1503"  data-tokens="15 3 15-03 15-3">15年3弾</option>
+			<option value="1504"  data-tokens="15 4 15-04 15-4">15年4弾</option>
+			<option value="1505"  data-tokens="15 5 15-05 15-5">15年5弾</option>
+			<option value="1506"  data-tokens="15 6 15-06 15-6">15年6弾</option>
+			<option value="1601"  data-tokens="16 1 15-01 16-1">16年1弾</option>
+			<option value="1602"  data-tokens="16 2 16-02 16-2">16年2弾</option>
+			<option value="1603"  data-tokens="16 3 16-03 16-3">16年3弾</option>
+			<option value="1604"  data-tokens="16 4 16-04 16-4">16年4弾</option>
+			<option value="9999">プロモ</option>
+		</select>
+		</li>
+		<li>
+			<button type="button" class="btn help_icon" data-container="body" data-toggle="popover" data-placement="bottom" 
+	  		data-content="キャラクターと弾数を選ぶと対応するカードが表示されます。カードが表示されている状態で、横三角のボタンを押すとスクロールします。セレクトボックスの検索バーは変換を伴う入力(日本語とか)が上手く行かないので半角英数字推奨です。スマホは諦めて下さい。" data-original-title="" title="">
+	    	<span class="glyphicon glyphicon-question-sign"></span> 
+	  	</button>
+	 </li>
+	 </h1>
+	</ul>
 
-		<div class="ct"><img src="./image/01-01.png" title="01-01" /></div>
-		<div class="ct"><img src="./image/01-02.png" title="01-02" /></div>
-		<div class="ct"><img src="./image/01-03.png" title="01-03" /></div>
-		<div class="ct"><img src="./image/01-04.png" title="01-04" /></div>
-		<div class="ct"><img src="./image/01-05.png" title="01-05" /></div>
-		</div>
-		</div>
-	</div>
-</body></html>
+	<!-- コンテンツ -->
+	<div id="clist"></div>
+  <a href="#" class="page-top">TOP ▲</a>
+
+</body>
+</html>
