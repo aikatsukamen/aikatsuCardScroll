@@ -1,30 +1,137 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent
+}
 
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block
+}
 
-body{background: #FFF;margin-bottom: 50px;
-font-family: "Times New Roman", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;}
-header {font-size: 80%; padding: 2px; border-width: 1px; border-style: solid none; border-color: #FFF;}
-h1 {line-height: 130%;font-size:14px; padding: 4px 4px;
-background: linear-gradient(#FFF, #FCC);}
-ul li.list {list-style:none;float: left;}
+body {
+  background: #FFF;
+  margin-bottom: 50px;
+  font-family: "Times New Roman", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+}
 
-#clist {
-  text-align:center;
-  background:#FFF;
+header {
+  font-size: 80%;
+  padding: 2px;
+  border-width: 1px;
+  border-style: solid none;
+  border-color: #FFF;
+}
+
+h1 {
+  line-height: 130%;
+  font-size: 14px;
+  padding: 4px 4px;
+  background: linear-gradient(#FFF, #FCC);
+}
+
+ul li.list {
+  list-style: none;
+  float: left;
+}
+
+.clist {
+  text-align: center;
+  background: #FFF;
   min-height: auto;
   line-height: 0;
   -webkit-column-count: 6;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    6;
-  -moz-column-gap:      0px;
-  column-count:         6;
-  column-gap:           0px;
+  -webkit-column-gap: 0px;
+  -moz-column-count: 6;
+  -moz-column-gap: 0px;
+  column-count: 6;
+  column-gap: 0px;
 }
+
 #clist div img {
   width: 100% !important;
   height: auto !important;
 }
+
 /*
 @media (max-width: 1200px) {
   #photos {
@@ -55,35 +162,50 @@ ul li.list {list-style:none;float: left;}
   }
 }
 */
-.page-top {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    padding: 10px;
-    background: #fff;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    font-size: 12px;
-    -ms-filter: "alpha(opacity=60)";
-    -moz-opacity: 0.6;
-    -khtml-opacity: 0.6;
-    opacity: 0.6;
+.as_inner {
+  text-align: center;
+  background: #FFF;
+  min-height: auto;
+  line-height: 0;
+  -webkit-column-count: 6;
+  -webkit-column-gap: 0px;
+  -moz-column-count: 6;
+  -moz-column-gap: 0px;
+  column-count: 6;
+  column-gap: 0px;
 }
 
-img {padding:1px;}
+.page-top {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  font-size: 12px;
+  -ms-filter: "alpha(opacity=60)";
+  -moz-opacity: 0.6;
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}
+
+img {
+  padding: 1px;
+}
 
 #scroll-box {
-height:200px;
-overflow:hidden;
-overflow-y:scroll;
-border:1px solid #ccc;
-padding:0 20px;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 0 20px;
 }
 
-.help_icon{
+.help_icon {
   display: inline-block;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   text-decoration: none;
   font-weight: bold;
   font-family: Helvetica, Arial, sans-serif;

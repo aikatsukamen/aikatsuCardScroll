@@ -34,7 +34,7 @@ let scrollWait = 0;
 // スクロール速度
 let scrollSpeed = 1000;
 
-$(function() {
+$(function () {
   // リクエストパラメータの取得
   const params = location.href.split('?');
   const paramms = params.length > 1 && params[1].split('&');
@@ -82,7 +82,7 @@ $(function() {
   // TOPへ戻るボタン
   const pageTop = $('.page-top');
   pageTop.hide();
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 600) {
       pageTop.fadeIn();
     } else {
@@ -133,6 +133,7 @@ const generateTag = cardList => {
 // オートスクロール開始
 const startScroll = () => {
   const cardNum = $('.content').length - 1;
+  $('#clist').removeClass("clist");
   $('#clist').autoScroller({
     wait: scrollWait,
     speed: scrollSpeed,
@@ -144,6 +145,7 @@ const startScroll = () => {
 // オートスクロール停止
 const stopScroll = () => {
   $('#clist').empty();
+  $('#clist').addClass("clist");
   generateTag(nowCardList);
 };
 
