@@ -114,6 +114,23 @@ ul li.list {
   float: left;
 }
 
+.header:hover {
+  opacity: 1;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.movePos {
+  position: absolute !important;
+  top: 0
+}
+
+#clist {
+  z-index: -1;
+}
+
 .clist {
   text-align: center;
   background: #FFF;
@@ -163,6 +180,23 @@ ul li.list {
 }
 */
 .as_inner {
+  text-align: center;
+  background: #FFF;
+  min-height: auto;
+  line-height: 0;
+  -webkit-column-count: 6;
+  -webkit-column-gap: 0px;
+  -moz-column-count: 6;
+  -moz-column-gap: 0px;
+  column-count: 6;
+  column-gap: 0px;
+}
+
+.slick-slide {
+  width: calc(100vw / 6) !important;
+}
+
+.slick-track {
   text-align: center;
   background: #FFF;
   min-height: auto;

@@ -57,6 +57,14 @@ $(function () {
     }
   }
 
+  // 自動スクロールのウェイトを設定
+  if (typeof paramArray['overflow'] != 'undefined') {
+    if (paramArray['overflow'] === "hidden") {
+      $("html").css("overflow-y", "hidden");
+      $("html").css("overflow-x", "hidden");
+    }
+  }
+
   // ヘルプボタンのポップオーバー
   $('[data-toggle="popover"]').popover();
 
@@ -132,13 +140,29 @@ const generateTag = cardList => {
 
 // オートスクロール開始
 const startScroll = () => {
-  const cardNum = $('.content').length - 1;
+  // const cardNum = $('.content').length - 1;
   $('#clist').removeClass("clist");
-  $('#clist').autoScroller({
-    wait: scrollWait,
-    speed: scrollSpeed,
-    target: '.content',
-    display: cardNum
+  $('.header').addClass("transparent");
+  $('#clist').addClass("movePos");
+  // $('#clist').autoScroller({
+  //   wait: scrollWait,
+  //   speed: scrollSpeed,
+  //   target: '.content',
+  //   display: cardNum
+  // });
+
+  $('#clist').slick({
+    autoplay: true, //自動スクロール
+    infinite: true,
+    autoplaySpeed: 0, //自動再生時のスライド切り替えの時間
+    speed: 5000, //スライドが流れるスピード
+    arrows: false, //左右の矢印を非表示
+    swipe: false, //スワイプ禁止
+    vertical: true,
+    slidesToShow: 4, //表示するスライドの数
+    cssEase: 'linear', //画像切り替えのアニメーション"linearは等速"
+    pauseOnFocus: false, //フォーカスしても止めない
+    pauseOnHover: false //マウスホバーしても止めない
   });
 };
 
@@ -146,6 +170,11 @@ const startScroll = () => {
 const stopScroll = () => {
   $('#clist').empty();
   $('#clist').addClass("clist");
+  $('#clist').removeClass("movePos");
+  $('#clist').removeClass("slick-initialized slick-slider slick-vertical");
+  $('.header').removeClass("transparent");
+
+  // $("#clist").slick("slickPause");
   generateTag(nowCardList);
 };
 
